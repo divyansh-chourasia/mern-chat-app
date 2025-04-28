@@ -8,8 +8,9 @@ import cookieParser from "cookie-parser";
 import authRoutes from './routes/auth.routes.js'
 import messageRoutes from './routes/message.routes.js'
 import userRoutes from './routes/user.routes.js'
+import { app, server } from "./socket/socket.js";
 
-const app = express();
+// const app = express(); // this is  moves in socket
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json()); // to extract incomming json payload from browser (req.body)
@@ -22,7 +23,8 @@ app.use("/api/messages", messageRoutes)
 
 app.use("/api/users", userRoutes)
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   connectToMongoDB();
   console.log(`🚀 Server running on port ${PORT}`);
 });
+ 
