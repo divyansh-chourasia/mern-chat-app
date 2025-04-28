@@ -20,7 +20,7 @@ const useLogout = () => {
 			}
 
 			localStorage.removeItem("mern-chat-app-user");
-			setAuthUser(null);
+			setAuthUser(null); // removing auth user from the context 
 		} catch (error) {
 			toast.error(error.message);
 		} finally {
