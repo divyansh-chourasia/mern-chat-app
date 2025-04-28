@@ -24,9 +24,11 @@ const useLogin = () => {
 
 			localStorage.setItem("mern-chat-app-user", JSON.stringify(data));
 			setAuthUser(data);
-		} catch (error) {
+		} 
+		catch (error) {
 			toast.error(error.message);
-		} finally {
+		}
+		finally {
 			setLoading(false);
 		}
 	};

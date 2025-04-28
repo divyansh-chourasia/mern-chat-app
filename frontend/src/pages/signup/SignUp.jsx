@@ -4,23 +4,16 @@ import { Link } from "react-router-dom";
 import useSignup from "../../hooks/useSignup";
 
 const SignUp = () => {
-  const [inputs, setInputs] = useState({
-    fullName: "",
-    username: "",
-    password: "",
-    confirmPassword: "",
-    gender: "",
-  });
+  const [inputs, setInputs] = useState({fullName: "",username: "",password: "",confirmPassword: "",gender: "",});
 
   const {loading, signup} =  useSignup()
-
   const handleCheckbox = (gender) => {
     setInputs({ ...inputs, gender });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await signup(inputs);
+    await signup(inputs); 
   };
 
   return (
@@ -93,10 +86,11 @@ const SignUp = () => {
           </div>
 
           <GenderCheckbox
-            onCheckboxChange={handleCheckbox}
             selectedGender={inputs.gender}
+            onCheckboxChange={handleCheckbox}
+            
           />
-
+          
           <Link
             to="/login"
             className="text-sm hover:underline hover:text-blue-500 mt-2 inline-block "
